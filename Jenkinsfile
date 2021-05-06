@@ -15,11 +15,12 @@ pipeline {
 		}
 		
 		stage('Smoke Test') {
-			sh 'echo "Starting e2e Testing"'
+			
 			steps {
 				script{
 					docker.image('zamirhasan/cypress-cucumber-image').inside {						
 						dir ("cypress-tests") {
+							sh 'echo "Starting e2e Testing"'
 							sh 'npm install'
 							sh 'npm run e2e_mochawesome'
 							zip zipFile: 'Report-' + currentBuild.number + '.zip', dir: 'mochawesome-report'
