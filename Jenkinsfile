@@ -27,6 +27,7 @@ pipeline {
 			}
 		}
 		stage('Evaluate results') {
+			steps {
 			sh 'echo Evaluating results - see archived file for details'
 			def results = readJSON file: 'cypress-sample-project/mochawesome-report/output.json'
 			def testSuitsCount = results.stats.suites
@@ -40,6 +41,7 @@ pipeline {
 				sh 'exit 1'
 			}
 			sh 'exit 0'
+			}
 		}
 	}
 }
