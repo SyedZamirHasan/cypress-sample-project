@@ -1,0 +1,10 @@
+node_modules
+
+# Cypress
+mochawesome-report
+screenshots
+videos
+
+# IntelliJ
+.idea
+*.iml

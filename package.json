@@ -1,0 +1,40 @@
+{
+  "name": "cypress-sample-project",
+  "version": "1.0.0",
+  "author": "Zamir Hasan",
+  "description": "Sample Cypress Test",
+  "main": "index.js",
+  "scripts": {
+    "e2eHeadless": "./node_modules/.bin/cypress run --headless",
+    "test": "npm start & ./node_modules/.bin/cypress run",
+    "start": "./node_modules/.bin/cypress open",
+    "run": "./node_modules/.bin/cypress run",
+    "cy:run": "./node_modules/.bin/cypress run",
+    "cy:run:record": "./node_modules/.bin/cypress run --record",
+    "cy:open": "./node_modules/.bin/cypress open",
+    "cleanup": "rm -fr mochawesome-report",
+    "merge_reports": "mochawesome-merge --reportDir mochawesome-report > mochawesome-report/output.json",
+    "generate_mochawesome_report": "marge mochawesome-report/output.json",
+    "e2e_mochawesome": "npm run cleanup; cypress run; npm run merge_reports; npm run generate_mochawesome_report"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "cypress-cucumber-preprocessor": {
+    "cucumberJson": {
+      "generate": true,
+      "outputFolder": "cucumber_report",
+      "filePrefix": "",
+      "fileSuffix": ".cucumber"
+    }
+  },
+  "devDependencies": {
+    "cypress": "^7.2.0",
+    "cypress-cucumber-preprocessor": "^4.1.0",
+    "tsify": "^5.0.2",
+    "typescript": "^4.2.4",
+    "mochawesome": "^6.2.2",
+    "mochawesome-merge": "^4.2.0",
+    "mochawesome-report-generator": "^5.2.0"
+  },
+  "dependencies": {}
+}
